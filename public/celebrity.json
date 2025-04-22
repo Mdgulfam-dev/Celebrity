@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "name": "Shah Rukh Khan",
+    "budget": 880000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer", "entrepreneur"],
+    "height": 1.73,
+    "birthday": "1965-11-02",
+    "instagram_followers": 35000000
+  },
+  {
+    "id": 2,
+    "name": "Salman Khan",
+    "budget": 360000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer", "television_host"],
+    "height": 1.74,
+    "birthday": "1965-12-27",
+    "instagram_followers": 69900000
+  },
+  {
+    "id": 3,
+    "name": "Amitabh Bachchan",
+    "budget": 192000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer", "television_host"],
+    "height": 1.88,
+    "birthday": "1942-10-11",
+    "instagram_followers": 32000000
+  },
+  {
+    "id": 4,
+    "name": "Akshay Kumar",
+    "budget": 300000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer"],
+    "height": 1.80,
+    "birthday": "1967-09-09",
+    "instagram_followers": 65000000
+  },
+  {
+    "id": 5,
+    "name": "Aamir Khan",
+    "budget": 225000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer", "director"],
+    "height": 1.68,
+    "birthday": "1965-03-14",
+    "instagram_followers": 3800000
+  },
+  {
+    "id": 6,
+    "name": "Hrithik Roshan",
+    "budget": 380000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer"],
+    "height": 1.80,
+    "birthday": "1974-01-10",
+    "instagram_followers": 50000000
+  },
+  {
+    "id": 7,
+    "name": "Alia Bhatt",
+    "budget": 101100000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor", "singer", "producer"],
+    "height": 1.60,
+    "birthday": "1993-03-15",
+    "instagram_followers": 85100000
+  },
+  {
+    "id": 8,
+    "name": "Deepika Padukone",
+    "budget": 40000000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor", "producer"],
+    "height": 1.73,
+    "birthday": "1986-01-05",
+    "instagram_followers": 79800000
+  },
+  {
+    "id": 9,
+    "name": "Priyanka Chopra",
+    "budget": 70000000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor", "singer", "producer"],
+    "height": 1.65,
+    "birthday": "1982-07-18",
+    "instagram_followers": 91800000
+  },
+  {
+    "id": 10,
+    "name": "Ranbir Kapoor",
+    "budget": 45000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer"],
+    "height": 1.83,
+    "birthday": "1982-09-28",
+    "instagram_followers": 0
+  },
+  {
+    "id": 11,
+    "name": "Kareena Kapoor Khan",
+    "budget": 60000000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor"],
+    "height": 1.63,
+    "birthday": "1980-09-21",
+    "instagram_followers": 11000000
+  },
+  {
+    "id": 12,
+    "name": "Katrina Kaif",
+    "budget": 30000000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor", "model"],
+    "height": 1.73,
+    "birthday": "1983-07-16",
+    "instagram_followers": 70000000
+  },
+  {
+    "id": 13,
+    "name": "Anushka Sharma",
+    "budget": 35000000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor", "producer"],
+    "height": 1.75,
+    "birthday": "1988-05-01",
+    "instagram_followers": 69000000
+  },
+  {
+    "id": 14,
+    "name": "Ajay Devgn",
+    "budget": 40000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "producer", "director"],
+    "height": 1.78,
+    "birthday": "1969-04-02",
+    "instagram_followers": 10000000
+  },
+  {
+    "id": 15,
+    "name": "Ranveer Singh",
+    "budget": 30000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor"],
+    "height": 1.78,
+    "birthday": "1985-07-06",
+    "instagram_followers": 42000000
+  },
+  {
+    "id": 16,
+    "name": "Varun Dhawan",
+    "budget": 20000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor"],
+    "height": 1.75,
+    "birthday": "1987-04-24",
+    "instagram_followers": 44000000
+  },
+  {
+    "id": 17,
+    "name": "Tiger Shroff",
+    "budget": 11000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor", "martial_artist", "dancer"],
+    "height": 1.75,
+    "birthday": "1990-03-02",
+    "instagram_followers": 34000000
+  },
+  {
+    "id": 18,
+    "name": "Vicky Kaushal",
+    "budget": 10000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor"],
+    "height": 1.83,
+    "birthday": "1988-05-16",
+    "instagram_followers": 15000000
+  },
+  {
+    "id": 19,
+    "name": "Nawazuddin Siddiqui",
+    "budget": 15000000,
+    "gender": "male",
+    "nationality": "in",
+    "occupation": ["actor"],
+    "height": 1.68,
+    "birthday": "1974-05-19",
+    "instagram_followers": 4000000
+  },
+  {
+    "id": 20,
+    "name": "Kangana Ranaut",
+    "budget": 13000000,
+    "gender": "female",
+    "nationality": "in",
+    "occupation": ["actor", "director", "producer"],
+    "height": 1.66,
+    "birthday": "1987-03-23",
+    "instagram_followers": 10000000
+  }
+]
