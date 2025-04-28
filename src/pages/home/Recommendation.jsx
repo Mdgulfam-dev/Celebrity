@@ -404,7 +404,7 @@ const Recommendation = () => {
 
         const payload = parsedData || {
           description:
-            "Promote a premium skincare brand targeting men in metro cities",
+            "Promote a premium skincare brand targeting men and women in metro cities",
           persona: "Elegant, trustworthy, luxurious",
           involvementType: "Brand Ambassador",
           audience: "Women aged 25-40 in urban areas",

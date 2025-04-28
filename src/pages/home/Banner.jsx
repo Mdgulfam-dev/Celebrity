@@ -46,6 +46,7 @@
 
 // export default Banner;
 
+
 import BannerImg3 from "../../assets/Bannerimage3.jpg";
 import BannerImg2 from "../../assets/Bannerimage.jpg";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +61,7 @@ const Banner = () => {
       {/* Content */}
       <div
         className="container columns is-vcentered has-background-black pt-6"
-        style={{ position: "relative", zIndex: 2 }}
+        style={{ position: "relative", zIndex: 1 }}
       >
         {/* Left Content */}
         <div className="column is-6 px-6 pt-6 fade-in-left">

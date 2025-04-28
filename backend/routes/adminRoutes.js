@@ -29,7 +29,7 @@ analytics_router.post("/track-campaign", async (req, res) => {
 // Track interest in a celebrity (by name)
 analytics_router.post("/track-interest", async (req, res) => {
   try {
-    const { name, userId = null, campaignId = null } = req.body;
+    const { name, userId , campaignId = null } = req.body;
 
     if (!name) {
       return res.status(400).json({ error: "Celebrity name is required" });

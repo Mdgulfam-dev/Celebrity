@@ -80,7 +80,7 @@
 
 
 
-//TESTING------------
+//Campaign create in campaign form------------
 import express from "express";
 import Campaign from "../models/campaignModel.js";
 // import generateRecommendation from "../utils/generateRecommendation.js";
