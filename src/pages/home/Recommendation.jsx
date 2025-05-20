@@ -407,8 +407,8 @@ const Recommendation = () => {
             "Promote a premium skincare brand targeting men and women in metro cities",
           persona: "Elegant, trustworthy, luxurious",
           involvementType: "Brand Ambassador",
-          audience: "Women aged 25-40 in urban areas",
-          budget: 2000000,
+          audience: "Men and Women aged 25-40 in urban areas",
+          budget: 500000,
         };
 
         const response = await fetch("http://localhost:4000/campaign", {
@@ -416,6 +416,8 @@ const Recommendation = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
+
+        
 
         const data = await response.json();
         const suggestions = Array.isArray(data.result?.suggested_actors)

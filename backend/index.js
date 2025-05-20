@@ -142,7 +142,7 @@ Respond ONLY with JSON in this format:
     console.log("Gemini raw result:", result);
 
     const cleaned = result.replace(/```json|```/g, "").trim();
-    const match = cleaned.match(/{[\s\S]*}/); // ✅ full JSON object
+    const match = cleaned.match(/{[\s\S]*}/); // full JSON object
 
     if (!match) {
       return res.status(500).json({
@@ -154,7 +154,7 @@ Respond ONLY with JSON in this format:
 
     let repaired;
     try {
-      repaired = jsonrepair(match[0]); // 🛠 auto-fix invalid JSON
+      repaired = jsonrepair(match[0]); //  auto-fix invalid JSON
     } catch (repairErr) {
       console.error("JSON repair failed:", repairErr);
       return res.status(500).json({
