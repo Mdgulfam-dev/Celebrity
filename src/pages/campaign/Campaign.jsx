@@ -63,77 +63,85 @@ const Campaign = () => {
     localStorage.removeItem("campaignForm");
   };
 
-  //Working without data submission 
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { brand, persona, involvement, audience, budget } = formData;
+//  const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   const { brand, persona, involvement, audience, budget } = formData;
 
-  //   const toastId = toast.loading("Generating recommendations...");
+//   const toastId = toast.loading("Generating recommendations...");
 
-  //   const payload = {
-  //     description: brand,
-  //     persona,
-  //     involvementType: involvement,
-  //     audience,
-  //     budget,
-  //   };
+//   const payload = {
+//     brand,
+//     persona,
+//     involvementType: involvement,
+//     audience,
+//     budget,
+//   };
 
-  //   try {
-  //     const response = await fetch("http://localhost:4000/campaign", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(payload),
-  //     });
+//   try {
+//     // 1. Store campaign in DB via /api/generate
+//     const storeRes = await fetch("http://localhost:4000/api/generate", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(payload),
+//     });
 
-  //     const data = await response.json();
+//     const storeData = await storeRes.json();
+//     console.log(storeData);
 
-  //     // Track campaign (optional) --it required testing
-  //     await fetch("http://localhost:4000/admin/track-campaign", {
-  //       method: "POST",
-  //     });
+//     // 2. Get recommendation from Gemini via /campaign
+//     const recRes = await fetch("http://localhost:4000/campaign", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({
+//         description: brand, // Gemini expects 'description'
+//         persona,
+//         involvementType: involvement,
+//         audience,
+//         budget,
+//       }),
+//     });
 
+//     const recData = await recRes.json();
+
+//     // Optional: Track campaign (if needed)
+//     // await fetch("http://localhost:4000/admin/track-campaign", {
+//     //   method: "POST",
+//     // });
+
+//     // Set message and store in localStorage
+//     setMessage(recData.result);
+
+//     localStorage.setItem("campaignFormData", JSON.stringify(payload));
+//     localStorage.setItem(
+//       "recommendationResult",
+//       JSON.stringify(recData.result?.suggested_actors || [])
+//     );
+//     localStorage.setItem("recommendationTimestamp", Date.now().toString());
+
+//     toast.update(toastId, {
+//       render: "Campaign submitted successfully!",
+//       type: "success",
+//       isLoading: false,
+//       autoClose: 3000,
       
+//     });
 
-  //     setMessage(data.result);
+//     setTimeout(() => {
+//       navigate("/");
+//     }, 1);
+//   } catch (error) {
+//     console.error("Submission failed:", error);
+//     toast.update(toastId, {
+//       render: "Failed to submit campaign.",
+//       type: "error",
+//       isLoading: false,
+//       autoClose: 3000,
+//     });
+//   }
+// };
 
-  //     // Save data in localStorage
-  //     localStorage.setItem("campaignFormData", JSON.stringify(payload));
-  //     localStorage.setItem(
-  //       "recommendationResult",
-  //       JSON.stringify(data.result?.suggested_actors || [])
-  //     );
-  //     localStorage.setItem("recommendationTimestamp", Date.now().toString());
-
-  //     toast.update(toastId, {
-  //       render: "Campaign submitted successfully!",
-  //       type: "success",
-  //       isLoading: false,
-  //       autoClose: 3000,
-  //     });
-
-    
-
-  //     // ✅ Redirect to home after success
-  //     setTimeout(() => {
-  //       navigate("/"); // go to homepage
-  //     }, 1); // wait for toast to show before redirecting
-  //   } catch (error) {
-  //     console.error("Submission failed:", error);
-  //     toast.update(toastId, {
-  //       render: "Failed to submit campaign.",
-  //       type: "error",
-  //       isLoading: false,
-  //       autoClose: 3000,
-  //     });
-  //   }
-  // };
-  
-
-
-  //testing----------
-
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   const { brand, persona, involvement, audience, budget } = formData;
 
@@ -156,14 +164,14 @@ const Campaign = () => {
     });
 
     const storeData = await storeRes.json();
-    console.log(storeData);
+     console.log(storeData);
 
     // 2. Get recommendation from Gemini via /campaign
     const recRes = await fetch("http://localhost:4000/campaign", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        description: brand, // Gemini expects 'description'
+        description: brand,
         persona,
         involvementType: involvement,
         audience,
@@ -173,14 +181,13 @@ const Campaign = () => {
 
     const recData = await recRes.json();
 
-    // Optional: Track campaign (if needed)
-    // await fetch("http://localhost:4000/admin/track-campaign", {
-    //   method: "POST",
-    // });
+    // Handle the response data properly
+    const resultMessage = recData.result?.suggested_actors 
+      ? `Recommended actors: ${recData.result.suggested_actors.join(', ')}`
+      : recData.result?.message || "Recommendation received";
 
-    // Set message and store in localStorage
-    setMessage(recData.result);
-
+    setMessage(resultMessage);
+    localStorage.setItem("campaignMessage", resultMessage);
     localStorage.setItem("campaignFormData", JSON.stringify(payload));
     localStorage.setItem(
       "recommendationResult",
@@ -195,9 +202,8 @@ const Campaign = () => {
       autoClose: 3000,
     });
 
-    setTimeout(() => {
-      navigate("/");
-    }, 1);
+    navigate("/");
+
   } catch (error) {
     console.error("Submission failed:", error);
     toast.update(toastId, {
@@ -208,6 +214,8 @@ const Campaign = () => {
     });
   }
 };
+
+
 
 
   return (
@@ -336,6 +344,8 @@ const Campaign = () => {
           </div>
         </div>
       )}
+
+     
     </section>
   );
 };

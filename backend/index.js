@@ -84,7 +84,7 @@ app.post("/campaign", async (req, res) => {
       req.body;
 
     const prompt = `
-You are a celebrity marketing AI expert. Based on the following campaign inputs, suggest the top 10 Indian actors or actresses who are the best fit.
+You are a celebrity marketing AI expert. Based on the following campaign inputs, suggest the top 10 Indian influencers who are the best fit.
 
 Return the result as a JSON array with these fields for each celebrity:
 - name
