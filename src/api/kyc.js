@@ -1,6 +1,7 @@
 import axios from "axios";
+import { config } from "../config";
 
-const API_BASE_URL = "http://localhost:4000/api/kyc";
+const API_BASE_URL = `${config.API_URL}/api/kyc`;
 
 export const uploadKYC = async (formData) => {
   try {

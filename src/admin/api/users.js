@@ -1,6 +1,7 @@
 import axios from "axios";
+import { config } from "../../config";
 
-const API_URL = "http://localhost:4000/api/kyc";
+const API_URL = `${config.API_URL}/api/kyc`;
 
 export const getUsers = async () => axios.get(`${API_URL}/all`);
 

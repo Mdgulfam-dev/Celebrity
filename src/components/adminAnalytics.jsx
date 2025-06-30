@@ -69,6 +69,7 @@
 
 
 import React, { useState, useEffect } from "react";
+import { config } from "../config";
 
 
 const Analytics = () => {
@@ -76,7 +77,7 @@ const Analytics = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const response = await fetch("http://localhost:4000/admin/analytics");
+      const response = await fetch(`${config.API_URL}/admin/analytics`);
       const data = await response.json();
       setAnalytics(data);
     } catch (error) {

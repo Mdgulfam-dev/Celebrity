@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { config } from "../config";
 
 const SearchResults = () => {
   const [profiles, setProfiles] = useState([]);
@@ -17,7 +18,7 @@ const SearchResults = () => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch(`http://localhost:4000/api/recommend/profile?name=${query}`);
+        const response = await fetch(`${config.API_URL}/api/recommend/profile?name=${query}`);
         const data = await response.json();
 
         if (!response.ok) {

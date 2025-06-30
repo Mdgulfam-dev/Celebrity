@@ -1,10 +1,11 @@
 import React from "react";
 import BannerImg3 from "../../assets/celebrity1.jpg"; 
+import { config } from "../../config";
 
 const CelebrityCard = ({ celebrity, userId }) => {
   const handleInterest = async () => {
     try {
-      const response = await fetch("http://localhost:4000/admin/track-interest", {
+      const response = await fetch(`${config.API_URL}/admin/track-interest`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

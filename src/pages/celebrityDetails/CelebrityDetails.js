@@ -74,6 +74,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { config } from "../../config";
 
 const CelebrityDetails = () => {
   const { id } = useParams(); // This can be ID or Name
@@ -90,7 +91,7 @@ console.log("Received Identifier from URL:", identifier);
   useEffect(() => {
     const fetchCelebrity = async () => {
       try {
-        let url = `http://localhost:4000/api/recommend/profile/${encodeURIComponent(id)}`;
+        let url = `${config.API_URL}/api/recommend/profile/${encodeURIComponent(id)}`;
         console.log("Fetching URL:", url);
         
         const response = await fetch(url);

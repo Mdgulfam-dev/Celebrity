@@ -178,6 +178,7 @@
 
 import React from "react";
 import { approveKYC, rejectKYC } from "../admin/api/users.js";
+import { config } from "../config";
 
 
 const UserList = ({ users, refreshUsers }) => {
@@ -233,7 +234,7 @@ const UserList = ({ users, refreshUsers }) => {
                 <td>
                   <a
                     // href={`http://localhost:4000/${user.kycDocument.replace('uploads/', '')}`}
-                    href={`http://localhost:4000/${user.kycDocument}`}
+                    href={`${config.API_URL}/${user.kycDocument}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="button is-small is-link is-light is-rounded"

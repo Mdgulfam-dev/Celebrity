@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { config } from "../config";
 
 const ProfileForm = () => {
   const { id } = useParams();
@@ -24,13 +25,13 @@ const ProfileForm = () => {
     if (id) {
       setIsEditing(true);
       axios
-        .get(`http://localhost:4000/api/user/profiles/${id}`)
+        .get(`${config.API_URL}/api/user/profiles/${id}`)
         .then((response) => {
           const profile = response.data;
           setFormData(profile);
           setPreview(
             profile.image
-              ? `http://localhost:4000/uploads/${profile.image}`
+              ? `${config.API_URL}/uploads/${profile.image}`
               : null
           );
         })
@@ -53,12 +54,12 @@ const ProfileForm = () => {
   const fetchProfile = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/api/user/profiles/${id}`
+        `${config.API_URL}/api/user/profiles/${id}`
       );
       setFormData(response.data); //Set latest data
       setPreview(
         response.data.image
-          ? `http://localhost:4000/uploads/${response.data.image}`
+          ? `${config.API_URL}/uploads/${response.data.image}`
           : null
       );
     } catch (error) {
@@ -80,8 +81,8 @@ const ProfileForm = () => {
       }
 
       const url = isEditing
-        ? `http://localhost:4000/api/user/profiles/${id}`
-        : "http://localhost:4000/api/user/profiles/profile";
+        ? `${config.API_URL}/api/user/profiles/${id}`
+        : `${config.API_URL}/api/user/profiles/profile`;
 
       await axios({
         method: isEditing ? "put" : "post",

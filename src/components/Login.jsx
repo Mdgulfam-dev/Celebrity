@@ -300,6 +300,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; 
+import { config } from "../config";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -324,7 +325,7 @@ const Login = () => {
     console.log("Attempting login with:", { email, password });
 
     try {
-      const response = await fetch("http://localhost:4000/api/user/login", {
+      const response = await fetch(`${config.API_URL}/api/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role }),

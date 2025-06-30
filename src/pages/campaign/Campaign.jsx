@@ -3,6 +3,7 @@ import "bulma/css/bulma.min.css";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import { config } from "../../config";
 // const toastId = toast.loading("Generating recommendations...");
 
 const Campaign = () => {
@@ -157,7 +158,7 @@ const handleSubmit = async (e) => {
 
   try {
     // 1. Store campaign in DB via /api/generate
-    const storeRes = await fetch("http://localhost:4000/api/generate", {
+    const storeRes = await fetch(`${config.API_URL}/api/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -167,7 +168,7 @@ const handleSubmit = async (e) => {
      console.log(storeData);
 
     // 2. Get recommendation from Gemini via /campaign
-    const recRes = await fetch("http://localhost:4000/campaign", {
+    const recRes = await fetch(`${config.API_URL}/campaign`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

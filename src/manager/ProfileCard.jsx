@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { config } from "../config";
 
 const ProfileCard = () => {
   const [profile, setProfile] = useState(null);
@@ -29,7 +30,7 @@ const ProfileCard = () => {
 
       try {
         const res = await axios.get(
-          "http://localhost:4000/api/user/profiles/profile",
+          `${config.API_URL}/api/user/profiles/profile`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -53,7 +54,7 @@ const ProfileCard = () => {
   const handleUpdate = async () => {
   try {
     const res = await axios.put(
-      "http://localhost:4000/api/user/profiles/profile",
+      `${config.API_URL}/api/user/profiles/profile`,
       formData,
       {
         headers: { Authorization: `Bearer ${token}` },
@@ -88,7 +89,7 @@ const ProfileCard = () => {
                 src={
                   profile.image?.startsWith("http")
                     ? profile.image
-                    : `http://localhost:4000/uploads/${profile.image}`
+                    : `${config.API_URL}/uploads/${profile.image}`
                 }
                 alt={profile.name}
               />

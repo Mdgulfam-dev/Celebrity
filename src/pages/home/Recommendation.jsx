@@ -377,6 +377,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { config } from "../../config";
 
 const Recommendation = () => {
   
@@ -412,7 +413,7 @@ const Recommendation = () => {
           budget: 500000,
         };
 
-        const response = await fetch("http://localhost:4000/campaign", {
+        const response = await fetch(`${config.API_URL}/campaign`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -432,7 +433,7 @@ const Recommendation = () => {
         );
         localStorage.setItem("recommendationTimestamp", Date.now().toString());
 
-        await fetch("http://localhost:4000/api/recommend/store-profiles", {
+        await fetch(`${config.API_URL}/api/recommend/store-profiles`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(suggestions),
@@ -451,7 +452,7 @@ const Recommendation = () => {
   const handleInterestedClick = async (name) => {
     try {
       const res = await fetch(
-        "http://localhost:4000/api/interest/track-interest",
+        `${config.API_URL}/api/interest/track-interest`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -465,7 +466,7 @@ const Recommendation = () => {
         toast.error("Failed to update click count.");
       }
 
-      await fetch("http://localhost:4000/api/user/send-message", {
+      await fetch(`${config.API_URL}/api/user/send-message`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ to: "+11234567890", name }),

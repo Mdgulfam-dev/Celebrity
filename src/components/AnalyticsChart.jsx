@@ -244,6 +244,7 @@ import {
   PieChart, Pie, Cell, LineChart, Line
 } from "recharts";
 import { saveAs } from "file-saver";
+import { config } from "../config";
 
 
 const COLORS = ["#00C49F", "#FF4444", "#FFBB28", "#007bff", "#AA336A", "#FF8042"];
@@ -253,7 +254,7 @@ const AnalyticsChart = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const response = await fetch("http://localhost:4000/admin/analytics");
+      const response = await fetch(`${config.API_URL}/admin/analytics`);
       const data = await response.json();
       setAnalytics(data);
     } catch (error) {
